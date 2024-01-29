@@ -1,0 +1,16 @@
+package edu.clarivate.jdbcsteps.delete;
+
+import java.util.Scanner;
+
+public class DeleteUserInfo {
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.println("Enter the User Id :");
+		int userId = read.nextInt();
+		int numberOfRows = deleteUserById(userId);
+	}
+
+	public static int deleteUserById(int userId) {
+		return 0;
+	}
+}

@@ -1,0 +1,36 @@
+package edu.clarivate.jdbcsteps.update;
+
+import java.util.Scanner;
+
+import edu.clarivate.jdbcsteps.dto.User;
+
+public class UpdateUserInfo {
+
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		User user = readUpdateUserInfo(read);
+		int numberOfRows = modfiyUserInfo(user);
+	}
+
+	public static int modfiyUserInfo(User user) {
+
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
+
+	public static User readUpdateUserInfo(Scanner read) {
+		User user = new User();
+		System.out.println("Enter the User Id :");
+		int userId = read.nextInt();
+		System.out.println("Enter the User Password : ");
+		String userPassword = read.next();
+
+		user.setUserId(userId);
+		user.setUserPassword(userPassword);
+		return user;
+	}
+}

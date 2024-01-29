@@ -1,0 +1,18 @@
+package edu.clarivate.jdbcsteps.update;
+
+import java.util.Scanner;
+
+import edu.clarivate.jdbcsteps.dto.User;
+
+public class UpdateUserInfo {
+
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		User user = readUpdateUserInfo(read);
+	}
+
+	public static User readUpdateUserInfo(Scanner read) {
+		User user = new User();
+		return null;
+	}
+}

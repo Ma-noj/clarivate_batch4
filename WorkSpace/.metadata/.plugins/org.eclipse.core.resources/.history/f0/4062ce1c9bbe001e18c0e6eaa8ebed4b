@@ -1,0 +1,10 @@
+package edu.clarivate.jdbcsteps.update;
+
+import java.util.Scanner;
+
+public class UpdateUserInfo {
+
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+	}
+}
