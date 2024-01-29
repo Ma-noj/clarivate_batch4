@@ -1,0 +1,9 @@
+package edu.clarivate.jdbcsteps.save;
+
+public class SaveUserInfo2 {
+
+	public static void main(String[] args) {
+
+	}
+
+}

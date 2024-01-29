@@ -1,0 +1,77 @@
+package edu.clarivate.jdbcsteps.save;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.Scanner;
+
+import edu.clarivate.jdbcsteps.dto.User;
+
+public class SaveUserInfo2 {
+
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		User user = readUserinfo(read);
+		int numberOfRows = saveUser(user);
+		if (numberOfRows == 1) {
+			System.out.println(numberOfRows + " Row affected");
+			System.out.println("User Saved in the DataBase");
+		} else {
+			System.out.println(numberOfRows + " Row affected");
+			System.out.println("User Not Saved in the DataBase");
+		}
+	}
+
+	public static int saveUser(User user) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int numberOfRows = 0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String dbUrl = "jdbc:mysql://localhost:3306/userinfo_clv4?user=root&password=root";
+			connection = DriverManager.getConnection(dbUrl);
+			String sqlQuery = "INSERT INTO user VALUES (?, ?, ?, ?, ?)";
+			preparedStatement = connection.prepareStatement(sqlQuery);
+
+			// Replace the place Holders with actual value
+			preparedStatement.setInt(1, user.getUserId());
+			preparedStatement.setString(2, user.getUserName());
+			preparedStatement.setString(3, user.getUserEmail());
+			preparedStatement.setString(4, user.getUserPassword());
+			preparedStatement.setInt(5, user.getAge());
+
+			numberOfRows = preparedStatement.executeUpdate();// insert, update or delete
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return numberOfRows;
+	}
+
+	public static User readUserinfo(Scanner read) {
+		User user = new User();
+		user.setUserId(110);
+		user.setUserName("Rohti");
+		user.setUserEmail("rohti@abc.in");
+		user.setUserPassword("rohti@123");
+		user.setAge(20);
+		return user;
+	}
+
+}

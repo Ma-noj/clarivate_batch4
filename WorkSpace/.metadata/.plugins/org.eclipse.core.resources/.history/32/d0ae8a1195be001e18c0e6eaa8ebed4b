@@ -1,0 +1,65 @@
+package edu.clarivate.jdbcsteps.save;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import edu.clarivate.jdbcsteps.dto.User;
+
+public class SaveUserInfo2 {
+
+	public static void main(String[] args) {
+
+		User user = readUserinfo();
+		int numberOfRows = saveUser(user);
+		if (numberOfRows == 1) {
+			System.out.println(numberOfRows + " Row affected");
+			System.out.println("User Saved in the DataBase");
+		}
+	}
+
+	public static int saveUser(User user) {
+		Connection connection = null;
+		PreparedStatement preparedStatement = null;
+		int numberOfRows = 0;
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String dbUrl = "jdbc:mysql://localhost:3306/userinfo_clv4?user=root&password=root";
+			connection = DriverManager.getConnection(dbUrl);
+			String sqlQuery = "INSERT INTO user (user_id, user_name, user_email, user_password, user_age) VALUES (109, 'Abhi', 'abhi3@abc.in', 'abhi@123', 25)";
+			preparedStatement = connection.prepareStatement(sqlQuery);
+			numberOfRows = preparedStatement.executeUpdate();// insert, update or delete
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.err.println(e.getMessage());
+		} finally {
+			if (connection != null) {
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+			if (preparedStatement != null) {
+				try {
+					preparedStatement.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+		return numberOfRows;
+	}
+
+	public static User readUserinfo() {
+		User user = new User();
+		user.setUserId(110);
+		user.setUserName("Rohti");
+		user.setUserEmail("rohti@abc.in");
+		user.setUserPassword("rohti@123");
+		user.setAge(20);
+		return user;
+	}
+
+}

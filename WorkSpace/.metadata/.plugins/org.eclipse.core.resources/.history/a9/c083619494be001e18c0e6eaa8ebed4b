@@ -1,0 +1,17 @@
+package edu.clarivate.jdbcsteps.save;
+
+import edu.clarivate.jdbcsteps.dto.User;
+
+public class SaveUserInfo2 {
+
+	public static void main(String[] args) {
+
+		User user = readUserinfo();
+	}
+
+	public static User readUserinfo() {
+		User user = new User();
+		return null;
+	}
+
+}

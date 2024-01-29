@@ -1,0 +1,23 @@
+package edu.clarivate.jdbcsteps.save;
+
+import edu.clarivate.jdbcsteps.dto.User;
+
+public class SaveUserInfo2 {
+
+	public static void main(String[] args) {
+
+		User user = readUserinfo();
+		int noOfRows = saveUser(user);
+	}
+
+	public static User readUserinfo() {
+		User user = new User();
+		user.setUserId(110);
+		user.setUserName("Rohti");
+		user.setUserEmail("rohti@abc.in");
+		user.setUserPassword("rohti@123");
+		user.setAge(20);
+		return user;
+	}
+
+}
