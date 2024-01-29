@@ -1,0 +1,6 @@
+INDEX VERSION 1.132+D:\workspaces\Clarivate\Batch_4\WorkSpace\.metadata\.plugins\org.eclipse.jdt.core
+1433784585.index
+1865797976.index
+1198392147.index
+697228766.index
+145594054.index

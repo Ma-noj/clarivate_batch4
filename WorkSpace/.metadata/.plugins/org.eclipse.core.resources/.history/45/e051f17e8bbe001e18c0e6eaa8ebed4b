@@ -1,0 +1,22 @@
+package edu.clarivate.jdbcsteps.save;
+
+public class SaveUserInfo {
+	public static void main(String[] args) {
+		// Step1:- Load the Driver
+		// (I)Driver->java.sql;
+		// MySQl Sever Driver class Name ->com.mysql.cj.jdbc.Driver
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// Step 2:Get Connection
+			// DBURL->Protocol:SubProtocol:SubName
+			// Protocol->jdbc
+			// SubProtocol->mysql
+			// SubName->hostName(address):port_number?user_name=&password
+
+			String dbUrl = "";
+		} catch (ClassNotFoundException e) {
+			System.err.println("Driver Class Not Present");
+		}
+	}
+}

@@ -1,0 +1,12 @@
+package edu.clarivate.jdbcsteps.save;
+
+public class SaveUserInfo {
+	public static void main(String[] args) {
+		// Step1:- Load the Driver
+		try {
+			Class.forName("");
+		} catch (ClassNotFoundException e) {
+			System.err.println("Driver Class Not Present");
+		}
+	}
+}

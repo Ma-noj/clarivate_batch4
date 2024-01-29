@@ -1,0 +1,43 @@
+package edu.clarivate.jdbcsteps.save;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+public class SaveUserInfo {
+	public static void main(String[] args) {
+		// Step1:- Load the Driver
+		// (I)Driver->java.sql;
+		// MySQl Sever Driver class Name ->com.mysql.cj.jdbc.Driver
+		try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+
+			// Step 2:Get Connection
+			// DBURL->Protocol:SubProtocol:SubName
+			// Protocol->jdbc
+			// SubProtocol->mysql
+			// SubName->hostName(address):port_number/databaseName?user=&password
+
+			String dbUrl = "jdbc:mysql://localhost:3306/userinfo_clv4?user=root&password=root";
+			Connection connection = DriverManager.getConnection(dbUrl);
+
+			// Step 3: create Statement
+			String sqlQuery = "INSERT INTO user (user_id, user_name, user_email, user_password, user_age) VALUES (108, 'Abhi', 'abhi1@abc.in', 'abhi@123', 25)";
+			PreparedStatement preparedStatement = connection.prepareStatement(sqlQuery);
+
+			// Step 4:Execute the query and process the result
+			int numberOfRows = preparedStatement.executeUpdate();// insert, update or delete
+			System.out.println(numberOfRows + " Row affected");
+
+			// Step 5: Close Connection
+
+			connection.close();
+			preparedStatement.close();
+
+		} catch (ClassNotFoundException | SQLException e) {
+			System.err.println("Driver Class Not Present");
+		}
+
+	}
+}
