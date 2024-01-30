@@ -1,0 +1,16 @@
+package edu.clarivate.jdbcsteps.select;
+
+import java.util.Scanner;
+
+public class FindUserByUserId {
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		System.out.println("Enter the Email :");
+		int userId = read.nextInt();
+		findUserById(userId);
+	}
+
+	public static void findUserById(int userId) {
+
+	}
+}
