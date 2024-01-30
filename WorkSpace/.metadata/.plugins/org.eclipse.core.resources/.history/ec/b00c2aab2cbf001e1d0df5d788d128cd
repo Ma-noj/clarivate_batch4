@@ -1,0 +1,5 @@
+package edu.clarivate.jdbcsteps.select;
+
+public class FindUserByEmailAndPassword {
+
+}

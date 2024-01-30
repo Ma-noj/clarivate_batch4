@@ -1,0 +1,10 @@
+package edu.clarivate.jdbcsteps.select;
+
+import java.util.Scanner;
+
+public class FindUserByEmailAndPassword {
+	public static void main(String[] args) {
+		Scanner read = new Scanner(System.in);
+		findUserByEmailAndPassword();
+	}
+}
