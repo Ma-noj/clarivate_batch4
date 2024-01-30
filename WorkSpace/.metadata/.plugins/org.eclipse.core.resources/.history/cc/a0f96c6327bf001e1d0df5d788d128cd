@@ -1,0 +1,14 @@
+package edu.clarivate.jdbcsteps.select;
+
+public class FindAllUser {
+
+	public static void main(String[] args) {
+		findAllUser()
+	}
+
+	private static void findAllUser() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}
