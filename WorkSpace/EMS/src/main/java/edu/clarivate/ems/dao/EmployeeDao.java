@@ -44,4 +44,14 @@ public class EmployeeDao {
 		}
 		return null;
 	}
+
+	// Find All Employee has Role SE
+	public List<Employee> findAllEmployeeAsSoftwareEng() {
+		String jpqlQuery = "SELECT e FROM Employee e WHERE e.role=?1";
+		EntityManager manager = EMSUtill.getEntityManager();
+		Query query = manager.createQuery(jpqlQuery);
+		query.setParameter(1, "SE");
+		return query.getResultList();
+
+	}
 }

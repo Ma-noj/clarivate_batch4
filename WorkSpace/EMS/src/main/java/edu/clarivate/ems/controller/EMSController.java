@@ -39,6 +39,11 @@ public class EMSController {
 		Employee employee = employeeDao.findEmployeeByEmailAndPassword(email, password);
 		if (employee != null) {
 			System.out.println("Hi Welcome To EMS!!");
+			if (employee.getRole().equalsIgnoreCase("manager")) {
+				// if Employee is Manager
+				ManagerController managerController = new ManagerController();
+				managerController.operation(read);
+			}
 		} else {
 			System.out.println("Employee With the Given Detalies not Found");
 		}
