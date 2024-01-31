@@ -15,7 +15,7 @@ public class Task {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	private String desc;
+	private String description;
 	private String status;
 	@CreationTimestamp
 	private LocalDateTime createdDateTime;
@@ -30,12 +30,12 @@ public class Task {
 		this.id = id;
 	}
 
-	public String getDesc() {
-		return desc;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getStatus() {
@@ -64,8 +64,8 @@ public class Task {
 
 	@Override
 	public String toString() {
-		return "Task [id=" + id + ", desc=" + desc + ", status=" + status + ", createdDateTime=" + createdDateTime
-				+ ", endedDateTime=" + endedDateTime + "]";
+		return "Task [id=" + id + ", description=" + description + ", status=" + status + ", createdDateTime="
+				+ createdDateTime + ", endedDateTime=" + endedDateTime + "]";
 	}
 
 }
