@@ -14,10 +14,10 @@ public class StudentManagementController {
 		List<Student> students = readStudentInfo(subjects);
 
 		// Save Subject
-		SubjectDao subjectDao = new SubjectDao();
-		for (Subject subject : subjects) {
-			subjectDao.saveSubject(subject);
-		}
+//		SubjectDao subjectDao = new SubjectDao();
+//		for (Subject subject : subjects) {
+//			subjectDao.saveSubject(subject);
+//		}
 
 		// Save Student Info
 
@@ -57,19 +57,19 @@ public class StudentManagementController {
 	public static List<Student> readStudentInfo(List<Subject> subjects) {
 		// Student 1
 		Student student1 = new Student();
-		student1.setId(10001);
-		student1.setName("Ravi");
-		student1.setEmail("ravi@abc.in");
+		student1.setId(10003);
+		student1.setName("Manoj");
+		student1.setEmail("manoj@abc.in");
 		student1.setAge(16);
-		student1.setMarks(45);
+		student1.setMarks(54);
 		student1.setSubjects(subjects);
 
 		// Student 2
 
 		Student student2 = new Student();
-		student2.setId(10002);
-		student2.setName("Prithi");
-		student2.setEmail("prithi@abc.in");
+		student2.setId(10004);
+		student2.setName("Yamini");
+		student2.setEmail("yamini@abc.in");
 		student2.setAge(16);
 		student2.setMarks(92);
 		student2.setSubjects(subjects);
