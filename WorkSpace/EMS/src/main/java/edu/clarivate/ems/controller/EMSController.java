@@ -16,11 +16,10 @@ public class EMSController {
 			int choice = read.nextInt();
 			switch (choice) {
 			case 1:// Login Operation
+				login(empController, employeeDao, read);
 				break;
 			case 2:
-				Employee employee = empController.readEmployeeInfo(read);
-				employee = employeeDao.saveEmployee(employee);
-				System.out.println("Employee Saved " + employee);
+				register(read, employeeDao, empController);
 				break;
 			case 3:
 				System.exit(0);
@@ -30,6 +29,26 @@ public class EMSController {
 				break;
 			}
 		}
+	}
+
+	public static void login(EmployeeController empController, EmployeeDao employeeDao, Scanner read) {
+		System.out.println("Enter the Employee Email :-");
+		String email = read.next();
+		System.out.println("Enter the Employee Password :-");
+		String password = read.next();
+		Employee employee = employeeDao.findEmployeeByEmailAndPassword(email, password);
+		if (employee != null) {
+			System.out.println("Hi Welcome To EMS!!");
+		} else {
+			System.out.println("Employee With the Given Detalies not Found");
+		}
+	}
+
+	public static void register(Scanner read, EmployeeDao employeeDao, EmployeeController empController) {
+		Employee employee = empController.readEmployeeInfo(read);
+		employee = employeeDao.saveEmployee(employee);
+		System.out.println("Employee Saved " + employee);
+
 	}
 
 }
